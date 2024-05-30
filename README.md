@@ -56,7 +56,7 @@ For coach seats, we offer two price options: $300 or $350. The probability of a 
 purchasing a coach ticket is 65% at the low price and 30% at the high price. When firstclass tickets are sold out, these probabilities increase to 68% and 33%, respectively.
 
 #### Parameter Initialization
-![image1]()
+![image1](images/1.png)
 
 #### Approach 
 We aim to determine the optimal pricing strategy for both first-class and coach tickets in
@@ -124,25 +124,25 @@ represented as:
 4. (c, t+1, f+1) - sold first-class ticket, but not coach
 
 #### Value Function
-![Image2]()
+![Image2](images/2.png)
 
 #### Bellman Equation/Expected Revenue
 
-![image3]()
+![image3](images/3.png)
 
 Given the possible choices (HcHf, HcLf,LcHf,LcLf), we can rewrite the above
 equation as follows to get the expected revenue:
 
-![image4]()
+![image4](images/4.png)
 
 In each of the 4 possible scenarios above, the expected revenue today will be given as
 follows:
 
-![Image5]()
+![Image5](images/5.png)
 
 Expected future revenue in each of the four scenario would be as follows:
 
-![Image6]()
+![Image6](images/6.png)
 
 In the above equation, 𝑆𝑐 denotes sale in coach class and 𝑆𝑓 denotes sale in first class.
 𝑆𝑐 and 𝑆𝑓 denotes no sale in coach and first class respectively. 𝑝𝑟𝑜𝑏( ) function denotes
@@ -153,7 +153,7 @@ and added to ‘expected revenue today’ gives the total expected revenue.
 
 On day T= 365, no more tickets can be sold, but overbooking costs can be incurred.
 
-![Image7]()
+![Image7](images/7.png)
 
 #### Overbooking Costs
 
@@ -165,15 +165,15 @@ can upgrade coach customers to first-class for a cost of $50 per customer.
 ● If upgrading is not feasible and the customer needs to be bumped off the plane,
 we must offer vouchers at a cost of $425 per remaining overbooked customer.
 
-![Image8]()
-![Image9]()
+![Image8](images/8.png)
+![Image9](images/9.png)
 
 
 ##### Profit Calculation in different scenarios:
 
 a. Scenario 1 (Flight Full)
 
-![Image10]()
+![Image10](images/10.png)
 
 b. Scenario 2 ( First class full but Coach not full)
 
@@ -181,7 +181,7 @@ In the scenario where the first class is already full but the coach class is not
 possible price points to charge for coach class: $300 and $350. Additionally, the
 probability of purchase here goes up by 3%. 
 
-![Image11]()
+![Image11](images/11.png)
 
 c. Scenario 3 (First Class not full but Coach full)
 
@@ -189,33 +189,33 @@ In the scenario where there are no seats available in the coach class but are av
 first class, we can charge two possible prices in the first class (low/high) at $425 and $500
 respectively.
 
-![Image12]()
+![Image12](images/12.png)
 
 d. Scenario 4 (Both not full)
 
 In case, we have seats available in both the classes, prices in any of the 4 possible
 combinations can be charged as stated in the choice variables.
 
-![Image13]()
+![Image13](images/13.png)
 
 
 For strategy 1, we initially ran for the case where we are allowed to overbook coach class
 by 5 seats. The expected profit for this policy is obtained to be **$41886.158**
 
-![Image14]()
+![Image14](images/14.png)
 
 
 Based on the Bellman equation, we can calculate the profit value for each of the
 overbooking values (ranging from 5 to 15 seats) to find the optimal overbooking policy
 which leads to the highest return in terms of profit. The results are shown in the plot below.
 
-![Image15]()
+![Image15](images/15.png)
 
 We observe that the highest profit is obtained when 9 seats are allowed to be overbooked
 in the coach class. In value terms, the expected profit in this scenario is $42134.624
 The table below provides the maximum discounted profit for different overbookings: 
 
-![Image16]()
+![Image16](images/16.png)
 
 # STRATEGY 2 FORMULATION
 In strategy 2, instead of a hard cap of tickets that we can overbook, we would allow the
@@ -253,7 +253,7 @@ the ticket was never put up on sale in the first place as a decision.
    
 #### Value Function
 
-![Image17]()
+![Image17](images/17.png)
 
 #### Bellman Equation
 
@@ -262,17 +262,18 @@ would the 2 cases which are captured by “val5” and “val6” variables in t
 snippet below:
 
 ● when the coach is not and first-class is offered low price
+
 ● when the coach is not and first-class is offered high price 
 
-![Image18]()
+![Image18](images/18.png)
 
 Based on the Bellman equation, we can calculate the profit value for each of the
 overbooking values (ranging from 5 to 20 seats) to find the optimal overbooking policy
 which leads to the highest return in terms of profit. The results are shown in the plot below.
 
-![Image19]()
+![Image19](images/19.png)
 
-![Image20]()
+![Image20](images/20.png)
 
 Here we can observe that the maximum expected discounted profit is when we allow
 coach to be oversold by 11 seats since after 11 the change in profit is not so significant
@@ -292,7 +293,7 @@ The next step was to compare the effectiveness of both the strategies:
 
 1. First we compared the expected profit distribution for both strategies
 
-![Image21]()
+![Image21](images/21.png)
 
 Inference: we can see from the two charts that although they look similar they
 differ at the distribution of the tails with more observations for strategy 1 of profit
@@ -300,7 +301,7 @@ between 38-40k compared that of strategy 2
 
 2. Next, we compare the overbooking costs for both the strategies.
 
-![Image22]()
+![Image22](images/22.png)
 
 As you can see, coach overbooking occurred in each scenario for each strategy clearly
 implying the revenue from overbooking far outweighs the cost associated with it even with
@@ -309,7 +310,7 @@ diminishing returns.
 3. Finally the number of times passengers were bumped off of the plane given the
 number of simulations.
 
-![Image23]()
+![Image23](images/23.png)
 
 Inference: Based on the charts we can see that given 100000 simulations, for
 strategy 1 overall we will bump 70% of the time vs strategy 2 where we bump
@@ -317,7 +318,7 @@ passengers 71.3% of the time.
 
 4. Overbooking cost distribution
 
-![Image24]()
+![Image24](images/24.png)
 
 Inference: From the chart, the overbooking costs frequency is approximately the
 same for each overbooking cost implying that regardless of strategy the distribution will
